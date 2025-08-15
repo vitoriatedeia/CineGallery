@@ -11,64 +11,32 @@ import {
 import InputComp from "../components/InputComp";
 import TextComp from "../components/TextComp";
 
-// IMPORTANDO O ICONE
-import Foundation from "@expo/vector-icons/Foundation";
-
 import { styles } from "../styles/styles";
 
 // IMPORTAÇÃO NATIVE
 import { useNavigation } from "@react-navigation/native";
 
-export default function signIn() {
+export default function Login() {
   const Navigation = useNavigation();
 
   return (
     <ImageBackground
-      style={styles.containerSI}
-      source={require("../images/sign.jpg")}
+      style={styles.background}
+      source={require("../assets/images/fundologin.jpg")}
     >
-      <Foundation
-        name="mountains"
-        size={70}
-        color="#345577"
-        style={{ bottom: 190, right: 130 }}
-      />
-
-      <Text style={styles.tituloSI}>ACESSE SUA CONTA!</Text>
-      <Text style={styles.subTituloSI}> Bem vindo de volta usuário!</Text>
-
-      <View style={styles.campo}>
-        <TextComp txt="Email:" />
-        <InputComp textPlaceHolder={"Digite seu email"} password={false} />
+      <View style={styles.inputcomp}>
+        <TextComp txt="Usuário:" />
+        <InputComp textPlaceHolder={"Digite seu usuário"} password={false} />
         <TextComp txt="Senha:" />
         <InputComp textPlaceHolder={"Digite sua senha"} password={true} />
-
-        <Pressable
-          style={{ position: "absolute", right: -10, bottom: 15 }}
-          onPress={() => {}}
-        >
-          <Text style={{ color: "#6ea2d0", fontSize: 12 }}>
-            Forgot your password?
-          </Text>
-        </Pressable>
       </View>
 
       <TouchableOpacity
-        onPress={() => Navigation.navigate("signUp")}
+        onPress={() => Navigation.navigate("Home")}
         style={styles.btnSI}
       >
         <Text style={styles.cadastroSI}> ENTRAR </Text>
       </TouchableOpacity>
-
-      <View style={styles.div}>
-        <Text style={styles.details}>Não tem uma conta ainda?</Text>
-        <Pressable onPress={() => Navigation.navigate("signUp")}>
-          <Text style={{ color: "#345577", fontWeigh: "bold" }}>
-            {" "}
-            Crie uma aqui!{" "}
-          </Text>
-        </Pressable>
-      </View>
     </ImageBackground>
   );
 }
