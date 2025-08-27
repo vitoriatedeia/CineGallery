@@ -16,8 +16,15 @@ import { styles } from "../styles/styles";
 // IMPORTAÇÃO NATIVE
 import { useNavigation } from "@react-navigation/native";
 
+import { setItem } from "../components/AsyncStorage";
+
 export default function Login() {
-  const Navigation = useNavigation();
+  const navigation = useNavigation();
+
+  const handleLogin = async () => {
+    await setItem("login", "1");
+    navigation.navigate("Home");
+  };
 
   return (
     <ImageBackground
@@ -31,10 +38,7 @@ export default function Login() {
         <InputComp textPlaceHolder={"Digite sua senha"} password={true} />
       </View>
 
-      <TouchableOpacity
-        onPress={() => Navigation.navigate("Home")}
-        style={styles.btnSI}
-      >
+      <TouchableOpacity onPress={handleLogin} style={styles.btnSI}>
         <Text style={styles.cadastroSI}> ENTRAR </Text>
       </TouchableOpacity>
     </ImageBackground>

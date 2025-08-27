@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import TextComp from "../components/TextComp";
 
 export const styles = StyleSheet.create({
   container: {
@@ -12,20 +13,22 @@ export const styles = StyleSheet.create({
   titulo: {
     fontSize: 25,
     fontWeight: "bold",
-    color: "white",
+    color: "rgb(139, 17, 17)",
     bottom: 90,
   },
 
   subTitulo: {
-    fontSize: 15,
-    color: "white",
+    fontSize: 20,
+    color: "rgb(139, 17, 17)",
     fontStyle: "italic",
     textAlign: "center",
     bottom: 80,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   btn: {
-    backgroundColor: "#44704a",
+    backgroundColor: "rgb(139, 17, 17)",
     width: 280,
     height: 40,
     borderRadius: 30,
@@ -69,13 +72,15 @@ export const styles = StyleSheet.create({
     backgroundColor: "rgb(139, 17, 17)",
     width: 230,
     height: 35,
-    borderRadius: 30,
+    borderRadius: 20,
     bottom: 40,
+    fontSize: 10,
+    padding: 9,
   },
 
   btnSI: {
-    backgroundColor: "#345577",
-    width: 280,
+    backgroundColor: "rgb(156, 57, 57)",
+    width: 240,
     height: 40,
     borderRadius: 30,
     alignItems: "center",
@@ -83,7 +88,7 @@ export const styles = StyleSheet.create({
   },
 
   cadastroSI: {
-    color: "#6ea2d0",
+    color: "black",
     fontStyle: "italic",
   },
 
@@ -100,5 +105,14 @@ export const styles = StyleSheet.create({
   details_singUP: {
     bottom: 40,
     color: "white",
+  },
+  bntSair: {
+    backgroundColor: "rgb(139, 17, 17)",
+    width: 280,
+    height: 40,
+    borderRadius: 30,
+    top: 160,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

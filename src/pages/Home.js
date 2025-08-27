@@ -7,49 +7,45 @@ import {
   View,
 } from "react-native";
 
-// IMPORTANDO O ICONE
-import Foundation from "@expo/vector-icons/Foundation";
-
 import { styles } from "../styles/styles";
 
 import { useNavigation } from "@react-navigation/native";
 
-export default function Menu() {
-  const Navigation = useNavigation();
+import { removeItem } from "../components/AsyncStorage";
+
+export default function Home() {
+  const navigation = useNavigation();
+
+  const logOut = async () => {
+    await removeItem("login");
+    navigation.push("Login");
+  };
 
   return (
     <ImageBackground
       style={styles.container}
-      source={require("../images/menu2.jpg")}
+      source={require("../assets/images/fundologin.jpg")}
     >
-      <Foundation
-        name="mountains"
-        size={120}
-        color="#44704a"
-        style={{ bottom: 80 }}
-      />
+      <View style={{ alignItems: "center", gap: 20 }}>
+        <Text style={styles.titulo}>BEM VINDO (A)!</Text>
+      </View>
 
-      <Text style={styles.titulo}>BEM VINDO</Text>
       <Text style={styles.subTitulo}>
-        {" "}
-        Aventuras mais seguras, baratas e relaxantes para o usuário.
+        Aqui você encontra os filmes mais em alta no momento! Prepare-se para
+        escolher sua próxima sessão!
       </Text>
 
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={() => Navigation.navigate("signIn")}
-      >
-        <Text style={styles.login}>Entrar com o EMAIL</Text>
-      </TouchableOpacity>
+      <View style={{ gap: 20, height: 10 }}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate("Filmes")}
+        >
+          <Text style={styles.login}>Ver galeria de filmes</Text>
+        </TouchableOpacity>
 
-      <View style={styles.div}>
-        <Text style={styles.details}>Não tem uma conta ainda?</Text>
-        <Pressable onPress={() => Navigation.navigate("signUp")}>
-          <Text style={{ color: "blue", fontWeigh: "bold" }}>
-            {" "}
-            Crie uma aqui!{" "}
-          </Text>
-        </Pressable>
+        <TouchableOpacity style={styles.bntSair} onPress={logOut}>
+          <Text>Sair</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
